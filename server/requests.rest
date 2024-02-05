@@ -1,0 +1,59 @@
+
+POST http://localhost:8082/token
+Content-Type: application/json
+
+{
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwicGFzc3dvcmQiOiIkMmIkMTAkN1lsekkwOHo3UGcvdWdnUU1wSTRUT3ouY1kuTjhsNHlCWGFyblNYeVpwc0huLm5ndTZVTUMiLCJpYXQiOjE3MDIzMDI5ODF9.gsF1NGTmQWlSmw0IraA1guI3O_8oUfGl_71wIVjA7TM"
+}
+
+
+
+### Admin Controls ###
+
+POST http://localhost:8080/admin-create
+Content-Type: application/json
+
+{
+  "firstname":"farhan",
+  "lastname":"reduan",
+  "username": "farhan",
+  "password": "123456",
+  "email": "test21@example.com"
+}
+###
+GET http://localhost:8080/admin-get-data 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc5YWNhMDk3NmU2ZjRkZjgwYmI1ZGYiLCJpYXQiOjE3MDM1MDg1NTl9.G2OPseAPBD0SDlAPu0QS3FX2kmyZDTDMyr-aL0Q1w3s
+###
+POST http://localhost:8080/queue-create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTg5ODkzNDQzZGIwNzdiZWM1NjUyNjIiLCJpYXQiOjE3MDM1MTI2MTN9.VOB6747zO9cZTIK7H-Lk4rLj1DxSt9n3Q1xy98cyLJE
+{
+  "queueName": "First queue",
+  "description": "This is my first queue"
+}
+###
+GET http://localhost:8080/queue-get
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc5YWNhMDk3NmU2ZjRkZjgwYmI1ZGYiLCJpYXQiOjE3MDI0NzQ0MDd9.hRRMOsXVUriOIcUSq_Ui6ZdbAbkXn4i-tSv5MGG1VAU
+
+{
+  "queueId": "657ad732f5e893bfb9e33f85"
+}
+
+### Authentication ###
+
+POST http://localhost:8082/login
+Content-Type: application/json
+{
+  "name": "name1",
+  "password": "pass23"
+}
+###
+DELETE http://localhost:8082/logout 
+Content-Type: application/json
+{
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZTEiLCJpYXQiOjE3MDI0NjI5OTIsImV4cCI6MTcwMjQ2MzU5Mn0.V0sS6Id2n7eGODr3UAg6zalSlexx3PIValW0XKpv8gA"
+}
+
+### Queue Controls ###
+

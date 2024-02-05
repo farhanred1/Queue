@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Test</title>
+</head>
+<body>
+  <h1>WebSocket Test</h1>
+  <p>Number of User Records: <span id="userCount">0</span></p>
+
+  <script>
+    const socket = new WebSocket('ws://localhost:3000');
+
+    socket.addEventListener('open', (event) => {
+      console.log('Connected to WS server');
+      console.log(event);
+    });
+
+    socket.addEventListener('message', (event) => {
+      const userData = JSON.parse(event.data);
+      console.log("Message from server: ", userData);
+      updateUI(userData.userCount);
+    });
+
+/*     socket.addEventListener('close', (event) => {
+      console.log('WebSocket connection closed');
+    }); */
+
+    function updateUI(userCount) {
+      const userCountElement = document.getElementById('userCount');
+      userCountElement.textContent = userCount;
+    }
+  </script>
+</body>
+</html>
